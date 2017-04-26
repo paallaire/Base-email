@@ -1,0 +1,56 @@
+
+
+<table class="content-heading" cellpadding="0" cellspacing="0" border="0" width="100%">
+  <tr>
+
+    <td valign="top">
+
+      <table cellpadding="0" cellspacing="0" border="0" width="100%">
+
+        <tr>
+          <td>{{ macro.spacer('60') }}</td>
+        </tr>
+
+        <tr>
+          <td class="content-heading__logo" align="center"><img src="{{ logoBrand }}" alt="Zyne" title="Zyne" /></td>
+        </tr>
+
+        {% if logoBrandSeparator == "true" %}
+        <tr>
+          <td>{{ macro.spacer('30') }}</td>
+        </tr>
+
+        <tr>
+          <td align="center" width="30">
+            <table cellpadding="0" cellspacing="0" border="0" width="30">
+              <tr>
+                <td align="center"><div class="content-heading__separator">&nbsp;</div></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        {% endif %}
+
+        <tr>
+          <td>{{ macro.spacer('30') }}</td>
+        </tr>
+
+        <tr>
+          <td align="center">
+            <table cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td align="center" class="content-heading__text">{{ headline }}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td>{{ macro.spacer('20') }}</td>
+        </tr>
+
+      </table>
+
+    </td>
+  </tr>
+</table>

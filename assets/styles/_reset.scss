@@ -1,0 +1,175 @@
+
+	/* Client-specific Styles */
+	#outlook a {
+	  padding: 0;
+	}
+	/* Force Outlook to provide a "view in browser" menu link. */
+	
+	body {
+	  width: 100% !important;
+	  margin: 0;
+	  padding: 0;
+	  -webkit-text-size-adjust: 100%;
+	  -ms-text-size-adjust: 100%;
+      -moz-osx-font-smoothing: antialiased;
+      -webkit-font-smoothing: antialiased;
+	}
+	/* Prevent Webkit and Windows Mobile platforms from changing default font sizes, while not breaking desktop design. */
+	
+	.ExternalClass {
+	  width: 100%;
+	}
+	/* Force Hotmail to display emails at full width */
+	
+	.ExternalClass,
+	.ExternalClass p,
+	.ExternalClass span,
+	.ExternalClass font,
+	.ExternalClass td,
+	.ExternalClass div {
+	  line-height: 100%;
+	}
+	/* Force Hotmail to display normal line spacing.  More on that: http://www.emailonacid.com/forum/viewthread/43/ */
+	
+	#backgroundTable {
+	  margin: 0;
+	  padding: 0;
+	  width: 100% !important;
+	  line-height: 100% !important;
+	}
+	/* End reset */
+	
+	img {
+	  outline: none;
+	  text-decoration: none;
+	  -ms-interpolation-mode: bicubic;
+	}
+	
+	a img {
+	  border: none;
+	}
+	
+	.image_fix {
+	  display: block;
+	}
+	/** Remove spacing around Outlook 07, 10 tables
+		More info : http://www.campaignmonitor.com/blog/post/3694/removing-spacing-from-around-tables-in-outlook-2007-and-2010/
+		Bring inline: Yes
+		**/
+	
+	table {
+	  border-collapse: collapse;
+	  mso-table-lspace: 0pt;
+	  mso-table-rspace: 0pt;
+	}
+
+/* ==========================================================================
+   #RESET-TAGS
+   ========================================================================== */
+
+a,
+abbr,
+acronym,
+address,
+applet,
+big,
+blockquote,
+body,
+caption,
+cite,
+code,
+dd,
+del,
+dfn,
+div,
+dl,
+dt,
+em,
+fieldset,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+html,
+iframe,
+img,
+ins,
+kbd,
+label,
+legend,
+li,
+object,
+ol,
+p,
+pre,
+q,
+s,
+samp,
+small,
+span,
+strike,
+strong,
+sub,
+sup,
+table,
+tbody,
+td,
+tfoot,
+th,
+thead,
+tr,
+tt,
+ul,
+var,
+figure {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+}
+
+// list
+ul,
+ol {
+  list-style: none;
+}
+
+// heading
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {}
+
+// link
+a {
+  color: inherit;
+  outline: none;
+  text-decoration: none;
+  display: block;
+}
+
+// images
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-style: none;
+}
+
+// table
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+// strong
+b,
+strong {
+  font-weight: bolder; /* Correct style set to `bold` in Edge 12+, Safari 6.2+, and Chrome 18+ */
+}
+

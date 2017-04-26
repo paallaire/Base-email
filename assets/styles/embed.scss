@@ -1,0 +1,139 @@
+
+// Base
+///////////////////////////////////////////
+@import 'variables';
+
+// Fonts
+///////////////////////////////////////////
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400');
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400');
+
+// Helper
+///////////////////////////////////////////
+@media only screen and (max-device-width: $mobileWidth), only screen and (max-width: $mobileWidth) {
+  
+  .container {
+    width: auto!important;
+  }
+  
+  .main-container {
+    padding:0!important;
+  }
+  
+  .max-w600 {
+    width:100%!important;
+  }
+  
+  img {
+    max-width: 100%!important;
+    height: auto !important;
+  }
+  
+
+  .hide-mobile {
+   display:none!important;
+  }
+  
+}
+
+// Header
+///////////////////////////////////////////
+@media only screen and (max-device-width: $mobileWidth), only screen and (max-width: $mobileWidth) {
+  
+  .site-header__logo {
+    width:160px!important;
+  }
+  
+  
+}
+
+// Footer
+///////////////////////////////////////////
+@media only screen and (max-device-width: $mobileWidth), only screen and (max-width: $mobileWidth) {
+  
+  .links {
+
+    a {
+      display: block!important;
+      margin-bottom:20px!important;
+      text-align: center!important;
+      padding-right:0!important;
+
+      &.last {
+        margin-bottom:0!important;
+      }
+
+    }
+
+  }
+  
+}
+
+
+// content-heading
+///////////////////////////////////////////
+@media only screen and (max-device-width: $mobileWidth), only screen and (max-width: $mobileWidth) {
+  
+  .content-heading__text {
+    width:auto!important;
+    font-size:14px!important;
+    line-height:18px!important;
+  }
+  
+}
+
+// article
+///////////////////////////////////////////
+@media only screen and (max-device-width: $mobileWidth), only screen and (max-width: $mobileWidth) {
+  
+  .article {
+
+    &__content {
+      padding:15px!important;
+    }
+    
+    &__title {
+      font-size:20px!important;
+      line-height:24px!important;
+    }
+    
+    
+
+  }
+  
+}
+
+
+// content-footer
+///////////////////////////////////////////
+@media only screen and (max-device-width: $mobileWidth), only screen and (max-width: $mobileWidth) {
+  
+  .content-footer__text {
+    width:auto!important;
+  }
+  
+}
+
+
+@media only screen and (max-device-width: $mobileWidth), only screen and (max-width: $mobileWidth) {
+  
+  .main-content {
+    background-image:none!important;
+  }
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

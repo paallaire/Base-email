@@ -1,0 +1,35 @@
+{
+  "dependencies": {
+    "embed.css": {
+      "files": [
+        "styles/embed.scss"
+      ],
+      "main": false
+    },
+    "inline.css": {
+      "files": [
+        "styles/inline.scss"
+      ],
+      "main": false
+    }
+  },
+  "fonts": {
+    "files": ["fonts/**/*"]
+  },
+  "images": {
+    "files": ["images/**/*"]
+  },
+  "paths": {
+    "source": "assets/",
+    "dist": "public/dist/",
+    "public": "public/",
+    "js": "scripts",
+    "css": "styles",
+    "twig": "twig/*.twig"
+  },
+  "config": {
+    "devUrl": "email.localtest.me"
+  }
+}
+
+

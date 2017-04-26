@@ -1,0 +1,17 @@
+.content-footer {
+  /*background:#fff;
+  background-color:#fff;*/
+}
+
+.content-footer__logo {
+  @include padding-mobile();
+}
+
+.content-footer__text {
+  @include padding-mobile();
+  width:300px;
+  color:#666;
+  font-size:16px;
+  line-height:22px;
+  text-align: center;
+}

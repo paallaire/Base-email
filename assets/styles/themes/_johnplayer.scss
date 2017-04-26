@@ -1,0 +1,41 @@
+.brand--johnplayer {
+  background:#F2F2F2;
+  background-color:#F2F2F2;
+  
+  .main-content {
+    background-color:#fff;
+    background-image: url('https://marketing-image-production.s3.amazonaws.com/uploads/8981620a467abf05b5b5b07a2c2bb04fef7afc6dd738c56ba043ef194eaedebe583504e9c0a442960138dcbb2c2be68eb9332d9ac88e64eb3b445a767c7faf50.jpg');
+    background-repeat: repeat;
+  }
+  
+  .content-heading__logo img {
+    width:110px;
+    height:110px;
+  }
+  
+  .content-heading__text {
+    color:#222;
+    font-family:$roboto;
+    font-weight:300;
+  }
+  
+  .article__content {
+    background: #eee;
+  }
+  
+  .article__title,
+  .article__text {
+    font-family:$roboto;
+  }
+  
+  .article__title{
+    color:#000;
+    font-weight:900;
+    text-transform: uppercase;
+  }
+
+  .article__text {
+    color:#666;
+  }
+  
+}

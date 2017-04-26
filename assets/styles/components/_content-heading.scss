@@ -1,0 +1,18 @@
+.content-heading__logo {
+  @include padding-mobile();
+}
+
+.content-heading__separator {
+  width:30px;
+  line-height:3px;
+  font-size:3px;
+  background-color:#333;
+}
+
+.content-heading__text {
+  @include padding-mobile();
+  color:#333;
+  font-size:18px;
+  line-height:24px;
+  text-align: center;
+}

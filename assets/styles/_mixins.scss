@@ -1,0 +1,23 @@
+@mixin padding-mobile() {
+  padding-left:20px;
+  padding-right:20px;
+}
+
+
+@mixin theme-dark() {
+  
+  .site-header__text {
+    color:#ccc;
+  }
+
+  .content-footer__text {
+    color:#ccc;
+  }
+  
+  .site-footer ,
+  .site-footer td,
+  .site-footer a {
+    color:#999;
+  }
+
+}

@@ -1,0 +1,31 @@
+{
+  "name": "Email-Workflow",
+  "version": "1.0.0",
+  "author": "Pascal-André Allaire",
+  "homepage": "",
+  "private": true,
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://opensource.org/licenses/MIT"
+    }
+  ],
+  "scripts": {
+    "build": "bower install && gulp"
+  },
+  "devDependencies": {
+    "asset-builder": "^1.1.0",
+    "browser-sync": "^2.18.8",
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-data": "^1.2.1",
+    "gulp-imagemin": "^3.2.0",
+    "gulp-inline-css": "^3.1.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.6.0",
+    "gulp-twig": "^0.7.0",
+    "minimist": "^1.2.0",
+    "run-sequence": "^1.2.2"
+  }
+}
