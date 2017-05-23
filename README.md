@@ -1,23 +1,14 @@
-# Email workflow
-
-
+# Base Email
 
 ## Install
 
-{0}. npm install
-{0}. bower install
+npm install && bower install
 
+## Build 
 
+gulp
 
+## Watch 
 
-## To build 
-
-{0}. gulp
-
-
-
-
-## To watch 
-
-{0}. gulp watch
+gulp watch
 

@@ -23,7 +23,6 @@
     "source": "assets/",
     "dist": "public/dist/",
     "public": "public/",
-    "js": "scripts",
     "css": "styles",
     "twig": "twig/*.twig"
   },

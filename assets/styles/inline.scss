@@ -1,14 +1,15 @@
 
 
-// init
+// Base
 ///////////////////////////////////////////
-@import 'variables';
-@import 'reset';
-@import 'mixins';
-@import 'typography';
+@import 'base/variables';
+@import 'base/reset';
+@import 'base/typography';
+@import 'base/utils';
 
 // mixins
 ///////////////////////////////////////////
+@import 'mixins/mobile';
 
 // layout
 ///////////////////////////////////////////
@@ -21,39 +22,11 @@
 
 // components
 ///////////////////////////////////////////
-@import 'components/content-heading';
-@import 'components/article';
-@import 'components/content-footer';
 
 // themes
 ///////////////////////////////////////////
-@import 'themes/fifty';
-@import 'themes/dumaurier';
-@import 'themes/johnplayer';
-@import 'themes/frontrow';
-@import 'themes/drifter';
-@import 'themes/pallmall';
-@import 'themes/iglo';
 
-// Helper
-///////////////////////////////////////////
-@for $i from 1 through 20 {
- 
-  .spacer-#{$i * 5} {
-    line-height: #{$i * 5 }px;
-    font-size: #{$i * 5 }px;
-  }
 
-}
-
-.container {
-  @include padding-mobile();
-}
-
-.display-block {
-  display:block;
-}
-  
 
 
 
