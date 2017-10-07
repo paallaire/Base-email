@@ -1,5 +1,5 @@
 {
-  "name": "Email-Workflow",
+  "name": "base-email",
   "version": "1.0.0",
   "author": "Pascal-André Allaire",
   "homepage": "",
@@ -11,7 +11,7 @@
     }
   ],
   "scripts": {
-    "build": "bower install && gulp"
+    "build": "npm install && gulp"
   },
   "devDependencies": {
     "asset-builder": "^1.1.0",
@@ -27,5 +27,8 @@
     "gulp-twig": "^0.7.0",
     "minimist": "^1.2.0",
     "run-sequence": "^1.2.2"
+  },
+  "dependencies": {
+    "npm-check-updates": "^2.13.0"
   }
 }

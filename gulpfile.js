@@ -111,7 +111,7 @@ gulp.task('watch', function () {
   });
 
   // HTML twig
-  gulp.watch(['./twig/**/*.*'], ['twig-watch']);
+  gulp.watch(['./templates/**/*.*'], ['twig-watch']);
   
   gulp.watch([path.source + path.css + '/**/*.scss'], ['style-watch']);
 
