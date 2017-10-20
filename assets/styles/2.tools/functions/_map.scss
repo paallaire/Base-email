@@ -1,0 +1,18 @@
+
+
+// Map container
+@function container($width) {
+  @return map-get($map-containers, $width);
+}
+
+// Map font size heading
+@function container($size) {
+  @return map-get($map-font-sizes-heading, $size);
+}
+
+// Map font size text
+@function container($size) {
+  @return map-get($map-font-sizes-text, $size);
+}
+
+

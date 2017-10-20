@@ -1,0 +1,134 @@
+/* ==========================================================================
+    #CONFIG
+    ========================================================================== */
+
+$env : 'dev';
+
+/* ==========================================================================
+    #FOLDER
+    ========================================================================== */
+
+$folder-fonts: '../fonts/';
+$folder-images: '../images/';
+$folder-svg: '../svg/';
+$icomoon-font-path: $folder-fonts;
+$folder-node-modules : '../../node_modules/';
+
+/* ==========================================================================
+    #TYPOGRAPHY
+    ========================================================================== */
+
+$Montserrat: 'Montserrat', sans-serif;
+$Baskerville: 'Libre Baskerville', serif;
+$font-heading: $Baskerville;
+$font-heading-line-height : 1.4;
+$font-text: $Montserrat;
+$font-text-line-height : 1.4;
+$map-font-sizes-heading: (
+  'h1':  40px,
+  'h2':  32px,
+  'h3':  30px,
+  'h4':  28px,
+  'h5':  26px,  
+  'h6':  20px 
+);
+$map-font-sizes-text: (
+  'mini':   8px,
+  'tiny':   10px,
+  'small':  12px,
+  'medium': 16px,
+  'large':  24px,
+  'big':    40px,
+  'huge':   80px,
+);
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-bold: 700;
+$font-weight-black: 700;
+
+/* ==========================================================================
+    #COLORS
+    ========================================================================== */
+
+$color-white: #fff;
+$color-black: #000;
+$color-black02: #010101;
+$color-black-pearl: #081f2c;
+$color-midnight: #001928;
+$color-mongoose: #b8a074;
+$color-gray: #b4b4b4;
+
+// Typo
+$color-text: $color-white;
+$color-heading: $color-black;
+
+// State
+$color-valid: green;
+$color-error: red;
+$color-warning: yellow;
+
+// Text selection
+$text-selection-color : #000;
+$text-selection-bg : #b3d4fc;
+
+/* ==========================================================================
+    #FORM
+    ========================================================================== */
+
+$form-border-width: 0;
+$form-border-color: #ccc;
+$form-border-radius: 0;
+$form-input-height: 40px;
+$form-input-color: #5a5657;
+$form-input-bgcolor: #e6e1db;
+$form-input-placehoder-color: #888;
+$form-input-padding-x: 12px;
+$form-input-padding-y: 8px;
+
+/* ==========================================================================
+    #MEDIA-QUERIES
+    ========================================================================== */
+
+$breakpoints: (
+  'small':   320px,
+  'phone':   520px,
+  'tablet':  768px,
+  'desktop': 1024px,
+  'large':   1440px,  
+);
+$padding-mobile : 20px;
+$padding-mobile-x : 20px;
+$padding-mobile-y : 20px;
+
+/* ==========================================================================
+    #CONTAINER
+    ========================================================================== */
+
+$map-containers: (
+  'mini':   320px,
+  'tiny':   600px,
+  'small':  700px,
+  'medium': 900px,
+  'large':  960px,
+  'big':    1100px,
+  'max':    1440px,
+  'full':   100%,  
+);
+
+/* ==========================================================================
+    #Z-INDEX
+    ========================================================================== */
+
+$z-sticky-nav: 100;
+$z-mobile-nav: 100;
+$z-overlay: 999;
+$z-modal: 1000;
+
+/* ==========================================================================
+    #TRANISTION
+    ========================================================================== */
+
+$transition-speed-slow: .6s;
+$transition-speed-medium: .3s;
+$transition-speed-fast: .1s;
+

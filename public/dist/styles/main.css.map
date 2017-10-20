@@ -1,0 +1,1 @@
+{"version":3,"sources":["main.scss"],"names":[],"mappings":"AAEA;EACE,mBAAkB,EACnB","file":"main.css","sourcesContent":["\n\nbody {\n  background: yellow;\n}"],"sourceRoot":"public/dist/styles/"}

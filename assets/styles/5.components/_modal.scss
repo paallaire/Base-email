@@ -1,0 +1,105 @@
+/* ==========================================================================
+    #MODAL
+    ========================================================================== */
+
+// Variables
+/////////////////////////////
+$modal-zindex: 1010 !default;
+$modal-max-width: 600px !default;
+$modal-padding-y: 40px !default;
+$modal-padding-x: 15px !default;
+$modal-btn-outside-width: 50px !default;
+$modal-btn-color: #fff !default;
+$modal-btn-bg-color: #000 !default;
+$modal-content-padding: 30px !default;
+$modal-content-bg-color: #fff !default;
+
+#{$modal} {
+  padding-top: $modal-padding-y;
+  padding-right: $modal-padding-x + $modal-btn-outside-width;
+  padding-bottom: $modal-padding-y;
+  padding-left: $modal-padding-x + $modal-btn-outside-width;
+
+  position: fixed;
+  z-index: $modal-zindex;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  display: none;
+  overflow-y: auto;
+
+  background: rgba(0,0,0,.6);
+}
+
+#{$modal}-content {
+  max-width: $modal-max-width;
+  max-height: calc( 100vh - #{$modal-padding-y}*2 );
+  margin: 0 auto;
+  padding: $modal-content-padding;
+
+  position: relative;
+
+  overflow-y: auto;
+
+  background-color: $modal-content-bg-color;
+}
+
+#{$modal}__btn-close-outside {
+  width: $modal-btn-outside-width;
+  height: $modal-btn-outside-width;
+
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  color: $modal-btn-color;
+  background: $modal-btn-bg-color;
+}
+
+#{$modal}__btn-close-inside {
+  width: $modal-btn-outside-width;
+  height: $modal-btn-outside-width;
+
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  color: $modal-btn-color;
+  background: $modal-btn-bg-color;
+}
+
+/* ==========================================================================
+    #MODAL-STATE
+    ========================================================================== */
+
+#{$modal}.is-show {
+  animation: fadeIn .3s linear;
+
+  #{$modal}-content {
+    animation: moveDown .3s ease-out,fadeIn .3s linear;
+  }
+}
+
+#{$modal}.is-hide {
+  animation: fadeOut .3s linear;
+
+  #{$modal}-content {
+    animation: moveUp .3s ease-out,fadeOut .3s linear;
+  }
+}
+
+#{$modal}.is-active {
+  display: block;
+
+  &[data-modal-position='center'] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+
+
+

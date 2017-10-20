@@ -1,0 +1,37 @@
+/* ==========================================================================
+    #DEBUG BREAKPOINT
+    ========================================================================== */
+
+@if ($env == 'dev') {
+
+  body {
+
+    &:after {
+
+      @each $name, $value in $breakpoints {
+
+        @include media('>=#{$name}') {
+          content: '#{$name}';
+        }
+
+      }
+
+      padding: 10px;
+
+      position: fixed;
+      right: 0;
+      bottom: 0;
+
+      display: block;
+      background: #ccc;
+      text-transform: capitalize;
+
+    }
+
+  }
+
+}
+
+
+
+
