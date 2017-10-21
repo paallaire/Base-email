@@ -1,37 +1,5 @@
 
-// Base
-///////////////////////////////////////////
-@import 'base/variables';
 
-// Fonts
-///////////////////////////////////////////
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400');
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,400');
-
-// Helper
-///////////////////////////////////////////
-@media only screen and (max-device-width: $mobileWidth), only screen and (max-width: $mobileWidth) {
-  
-  .container {
-    width: auto!important;
-  }
-  
-  .main-container {
-    padding:0!important;
-  }
-  
-  .max-w600 {
-    width:100%!important;
-  }
-  
-  img {
-    max-width: 100%!important;
-    height: auto !important;
-  }
-  
-
-  .hide-mobile {
-   display:none!important;
-  }
-  
+body {
+  background: red;
 }

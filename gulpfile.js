@@ -1,193 +1,240 @@
-/* ==========================================================================
-   #Modules
-   ========================================================================== */
 
-var gulp = require('gulp');
-var del = require('del');
-var browserSync = require('browser-sync').create();
-var data = require('gulp-data');
-var twig = require('gulp-twig');
-var plumber = require('gulp-plumber');
-var sass = require('gulp-sass');
-var sourcemaps = require('gulp-sourcemaps');
-var runSequence = require('run-sequence');
-var inlineCss = require('gulp-inline-css');
-var imagemin = require('gulp-imagemin');
-var argv = require('minimist')(process.argv.slice(2));
+/* --------------------------------------------------------------------------------
+    letiables
+-------------------------------------------------------------------------------- */
+const config = require('./config.json');
+const ftpConnection = require('./ftp.json');
+const argv = require('minimist')(process.argv.slice(2));
 
-/* ==========================================================================
-   #Path
-   ========================================================================== */
+const gulp = require('gulp');
+const del = require('del');
+const rename = require("gulp-rename");
+const runSequence = require('run-sequence');
+const notify = require("gulp-notify");
+const plumber = require('gulp-plumber');
+const gutil = require('gulp-util');
+const ftp = require('vinyl-ftp');
 
-var path = {
-  public: './public/',
-  scss: 'assets/styles/**/*.scss',
-  twig: 'twig/**/*.html',
-  twigData: './twig/data.json',
-  images: 'assets/images/**/*',
-};
-
-/* ==========================================================================
-   #HELPER
-   ========================================================================== */
-
-var onError = function (err) {
-  console.log("///////////// ERROR");
-  console.log(err.toString());
-  this.emit('end');
-};
-
-/* ==========================================================================
-   #manifest
-   ========================================================================== */
-
-// See https://github.com/austinpray/asset-builder
-var manifest = require('asset-builder')('./assets/manifest.json');
-
-var folder = manifest.folders;
-
-// `path` - Paths to base asset directories. With trailing slashes.
-// - `path.source` - Path to the source files. Default: `assets/`
-// - `path.dist` - Path to the build directory. Default: `dist/`
-var path = manifest.paths;
-
-// `config` - Store arbitrary configuration values here.
-var config = manifest.config || {};
-
-// `globs` - These ultimately end up in their respective `gulp.src`.
-// - `globs.js` - Array of asset-builder JS dependency objects. Example:
-//   ```
-//   {type: 'js', name: 'main.js', globs: []}
-//   ```
-// - `globs.css` - Array of asset-builder CSS dependency objects. Example:
-//   ```
-//   {type: 'css', name: 'main.css', globs: []}
-//   ```
-// - `globs.fonts` - Array of font path globs.
-// - `globs.images` - Array of image path globs.
-// - `globs.bower` - Array of all the main Bower files.
-var globs = manifest.globs;
-
-// `project` - paths to first-party assets.
-// - `project.js` - Array of first-party JS assets.
-// - `project.css` - Array of first-party CSS assets.
-var project = manifest.getProjectGlobs();
-
-// CLI options
-var enabled = {
-  // Enable static asset revisioning when `--production`
-  rev: argv.production,
-  // Disable source maps when `--production`
-  maps: !argv.production,
-  // Fail styles task on error when `--production`
-  failStyleTask: argv.production,
-};
+const browserSync = require('browser-sync').create('dev');
+const imagemin = require('gulp-imagemin');
+const sass = require('gulp-sass');
+const inlineCSS = require('gulp-inline-css');
+const sourcemaps = require('gulp-sourcemaps');
+const postcss = require('gulp-postcss');
+const autoprefixer = require('autoprefixer');
+const cssnano = require('cssnano');
+const twig = require('gulp-twig');
+const data = require('gulp-data');
 
 
-/* ==========================================================================
-   #TASKS
-   ========================================================================== */
 
-gulp.task('clean', require('del').bind(null, ["public","build"]));
+/*
+browserSync.create("dev");
+global.browserSync = browserSync.get('dev');
+*/
 
-gulp.task('build', function (callback) {
-  runSequence('styles', 'twig-watch', 'inline-css',
-    callback);
-});
 
+/* --------------------------------------------------------------------------------
+    clean
+-------------------------------------------------------------------------------- */
+gulp.task('clean', function () {
+
+    del([
+        'public',
+        'prod'
+    ]);
+
+})
+
+
+/* --------------------------------------------------------------------------------
+    watch
+-------------------------------------------------------------------------------- */
 gulp.task('watch', function () {
 
-  browserSync.init({
-    server: {
-      baseDir: "./public/"
-    },
-    ghostMode: {
-      clicks: true,
-      links: true,
-      forms: true,
-      scroll: true
-    },
-    reloadDelay: 1000
-  });
+    browserSync.init({
+        files: ['./templates/**/*.twig'],
+        server: {
+            baseDir: "./public/"
+        },
+        ghostMode: {
+            clicks: true,
+            links: true,
+            forms: true,
+            scroll: true
+        },
+        reloadDelay: 1000
+    });
 
-  // HTML twig
-  gulp.watch(['./twig/**/*.*'], ['twig-watch']);
-  
-  gulp.watch([path.source + path.css + '/**/*.scss'], ['style-watch']);
+    gulp.watch("./assets/styles/**/*.scss", ['styles']);
+    gulp.watch("./templates/**/*.twig", ['twig']);
 
 });
 
-gulp.task('twig', function () {
-  return gulp
-    .src(path.twig)
-    .pipe(plumber({
-      errorHandler: onError
-    }))
-    .pipe(data(function (file) {
-      return require('./twig/data.json');
-    }))
-    .pipe(twig())
-    .pipe(gulp.dest(path.public))
-});
 
-gulp.task('twig-watch', ['twig'], function (done) {
-  browserSync.reload();
-  done();
-});
-
-gulp.task('styles', function () { 
-  return gulp
-    .src(path.source + path.css + "/**/*.scss")
-    .pipe(plumber())
-    .pipe(sourcemaps.init())
-    .pipe(sass({
-      outputStyle: 'nested', // libsass doesn't support expanded yet
-      precision: 10,
-      includePaths: ['.'],
-      errLogToConsole: true
-    }))
-    .pipe(sourcemaps.write('.', {
-      sourceRoot: "assets/styles/"
-    }))
-    .pipe(gulp.dest(path.dist + path.css + '/'))
-    .pipe(browserSync.stream());
-});
-
-gulp.task('style-watch', function (done) {
-  runSequence('styles', 'twig', function () {
-    browserSync.reload();
-    done();
-  });
-});
-
-gulp.task('inline-css', ['styles'], function () {
-  return gulp.src(path.public + '/*.html')
-    .pipe(plumber({
-      errorHandler: onError
-    }))
-    .pipe(inlineCss({
-      applyStyleTags: true,
-      applyLinkTags: true,
-      removeStyleTags: false,
-      removeLinkTags: true
-    }))
-    .pipe(gulp.dest('build/'));
-});
-
+/* --------------------------------------------------------------------------------
+    images
+-------------------------------------------------------------------------------- */
 gulp.task('images', function () {
-  return gulp.src(globs.images)
-    .pipe(imagemin([
-      imagemin.gifsicle({interlaced: true}),
-      imagemin.jpegtran({progressive: true}),
-      imagemin.optipng({optimizationLevel: 4}),
-      imagemin.svgo( {plugins: [{removeViewBox: true},{removeUnknownsAndDefaults: false}, {cleanupIDs: false}]} )
-    ], {
-      verbose: true
-    }))
-    .pipe(gulp.dest(path.public + 'images'))
-    .pipe(browserSync.stream());
+
+    return gulp.src(`${config.src}images/*.*`)
+        .pipe(plumber())
+        .pipe(imagemin([
+            imagemin.gifsicle({ interlaced: true }),
+            imagemin.jpegtran({ progressive: true }),
+            imagemin.optipng({ optimizationLevel: 5 }),
+            imagemin.svgo({
+                plugins:
+                [
+                    { removeViewBox: true },
+                    { cleanupIDs: false }
+                ]
+            })
+        ], { verbose: true }))
+        .pipe(gulp.dest(`{config.dist}/images/`));
+
 });
 
-gulp.task('default', ['clean'], function () {
-  gulp.start('build');
+
+/* --------------------------------------------------------------------------------
+    styles
+-------------------------------------------------------------------------------- */
+gulp.task('styles', function () {
+
+    return gulp.src('./assets/styles/{inline,embed}.scss')
+        .pipe(plumber())
+        .pipe(sourcemaps.init())
+        .pipe(sass({
+            outputStyle: 'nested', // libsass doesn't support expanded yet
+            precision: 10,
+            includePaths: ['.'],
+            errLogToConsole: true
+        }))
+        .pipe(postcss([
+            autoprefixer({
+                browsers: [
+                    "last 2 versions",
+                    "IE 9",
+                    "Safari 8"
+                ]
+            }),
+            cssnano({
+                preset: 'default'
+            })
+        ]))
+        .pipe(sourcemaps.write('.', {
+            sourceRoot: './public/dist/styles/'
+        }))
+        .pipe(gulp.dest('./public/dist/styles/'))
+        .pipe(browserSync.stream());
+
 });
+
+
+/* --------------------------------------------------------------------------------
+    inlineCSS
+-------------------------------------------------------------------------------- */
+gulp.task('inlineCSS', ['styles'], function () {
+
+    return gulp.src('./public/*.html')
+        .pipe(plumber())
+        .pipe(inlineCSS({
+            applyStyleTags: true,
+            applyLinkTags: true,
+            removeStyleTags: false,
+            removeLinkTags: true
+        }))
+        .pipe(rename({
+            suffix: "-inline"
+        }))
+        .pipe(gulp.dest('./public/'));
+
+});
+
+/* --------------------------------------------------------------------------------
+    twig
+-------------------------------------------------------------------------------- */
+gulp.task('twig', ['styles'], function () {
+
+    return gulp
+        .src('./templates/*.twig')
+        .pipe(plumber())
+        .pipe(twig())
+        .pipe(gulp.dest('./public/'));
+
+});
+
+
+/* --------------------------------------------------------------------------------
+    build
+-------------------------------------------------------------------------------- */
+gulp.task('build', function () {
+    runSequence('clean', 'twig', 'inlineCSS')
+});
+
+
+/* --------------------------------------------------------------------------------
+    default
+-------------------------------------------------------------------------------- */
+gulp.task('default', function () {
+    gulp.start('build');
+});
+
+
+/* --------------------------------------------------------------------------------
+    deploy
+-------------------------------------------------------------------------------- */
+gulp.task('deploy', function () {
+    runSequence('cleanremote', 'upload')
+});
+
+
+/* --------------------------------------------------------------------------------
+    upload
+-------------------------------------------------------------------------------- */
+gulp.task('upload', function () {
+
+    let conn = ftp.create({
+        host: ftpConnection.host,
+        user: ftpConnection.user,
+        password: ftpConnection.password,
+        parallel: 10,
+        log: gutil.log,
+        idleTimeout: 1000
+    });
+
+    let globs = [
+        'public/**/*',
+    ];
+
+    // using base = '.' will transfer everything to /public_html correctly 
+    // turn off buffering in gulp.src for best performance 
+
+    return gulp.src(globs, { base: '.', buffer: false })
+        .pipe(conn.newer('/')) // only upload newer files 
+        .pipe(conn.dest('/'));
+
+});
+
+
+/* --------------------------------------------------------------------------------
+    cleanremote
+-------------------------------------------------------------------------------- */
+gulp.task('cleanremote', function (cb) {
+
+    let conn = ftp.create({
+        host: ftpConnection.host,
+        user: ftpConnection.user,
+        password: ftpConnection.password,
+        parallel: 10,
+        log: gutil.log,
+        idleTimeout: 100
+    });
+
+    return conn.rmdir('./public', function (err) {
+        cb();
+        gulp.start('deploy');
+    });
+    
+});
+
