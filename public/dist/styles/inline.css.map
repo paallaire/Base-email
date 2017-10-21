@@ -1,1 +1,0 @@
-{"version":3,"sources":["inline.scss"],"names":[],"mappings":"AAEA,KACE,eAAkB,CACnB","file":"inline.css","sourcesContent":["\r\n\r\nbody {\r\n  background: yellow;\r\n}"],"sourceRoot":"public/dist/styles/"}

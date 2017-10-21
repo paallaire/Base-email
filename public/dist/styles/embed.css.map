@@ -1,1 +1,0 @@
-{"version":3,"sources":["embed.scss"],"names":[],"mappings":"AAEA,KACE,cAAe,CAChB","file":"embed.css","sourcesContent":["\r\n\r\nbody {\r\n  background: red;\r\n}\r\n"],"sourceRoot":"public/dist/styles/"}

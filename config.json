@@ -1,6 +1,0 @@
-{
-  "src":    "./assets/",
-  "public": "./public/",
-  "dist":   "./dist/",
-  "twig":   "./templates/"
-}
