@@ -2,37 +2,34 @@
 /* --------------------------------------------------------------------------------
     letiables
 -------------------------------------------------------------------------------- */
-const config = require('./config.json');
+const config        = require('./config.json');
 const ftpConnection = require('./ftp.json');
-const argv = require('minimist')(process.argv.slice(2));
+const argv          = require('minimist')(process.argv.slice(2));
 
-const gulp = require('gulp');
-const del = require('del');
-const rename = require("gulp-rename");
-const runSequence = require('run-sequence');
-const notify = require("gulp-notify");
-const plumber = require('gulp-plumber');
-const gutil = require('gulp-util');
-const ftp = require('vinyl-ftp');
+const gulp          = require('gulp');
+const del           = require('del');
+const rename        = require("gulp-rename");
+const runSequence   = require('run-sequence');
+const notify        = require("gulp-notify");
+const plumber       = require('gulp-plumber');
+const gutil         = require('gulp-util');
+const ftp           = require('vinyl-ftp');
 
-const browserSync = require('browser-sync').create('dev');
-const imagemin = require('gulp-imagemin');
-const sass = require('gulp-sass');
-const inlineCSS = require('gulp-inline-css');
-const sourcemaps = require('gulp-sourcemaps');
-const postcss = require('gulp-postcss');
-const autoprefixer = require('autoprefixer');
-const cssnano = require('cssnano');
-const twig = require('gulp-twig');
-const data = require('gulp-data');
-
-
+const browserSync   = require('browser-sync').create('dev');
+const imagemin      = require('gulp-imagemin');
+const sass          = require('gulp-sass');
+const inlineCSS     = require('gulp-inline-css');
+const sourcemaps    = require('gulp-sourcemaps');
+const postcss       = require('gulp-postcss');
+const autoprefixer  = require('autoprefixer');
+const cssnano       = require('cssnano');
+const twig          = require('gulp-twig');
+const data          = require('gulp-data');
 
 /*
 browserSync.create("dev");
 global.browserSync = browserSync.get('dev');
 */
-
 
 /* --------------------------------------------------------------------------------
     clean
@@ -195,11 +192,11 @@ gulp.task('deploy', function () {
 gulp.task('upload', function () {
 
     let conn = ftp.create({
-        host: ftpConnection.host,
-        user: ftpConnection.user,
-        password: ftpConnection.password,
-        parallel: 10,
-        log: gutil.log,
+        host:        ftpConnection.host,
+        user:        ftpConnection.user,
+        password:    ftpConnection.password,
+        parallel:    10,
+        log:         gutil.log,
         idleTimeout: 1000
     });
 
@@ -223,11 +220,11 @@ gulp.task('upload', function () {
 gulp.task('cleanremote', function (cb) {
 
     let conn = ftp.create({
-        host: ftpConnection.host,
-        user: ftpConnection.user,
-        password: ftpConnection.password,
-        parallel: 10,
-        log: gutil.log,
+        host:        ftpConnection.host,
+        user:        ftpConnection.user,
+        password:    ftpConnection.password,
+        parallel:    10,
+        log:         gutil.log,
         idleTimeout: 100
     });
 

@@ -1,0 +1,14 @@
+
+/* padding-mobile */
+@mixin padding-mobile() {
+  padding-left:20px;
+  padding-right:20px;
+}
+
+/* spacer */
+@for $i from 1 through 20 {
+  .spacer-#{$i * 5} {
+      line-height: #{$i * 5 }px;
+      font-size: #{$i * 5 }px;
+  }
+}

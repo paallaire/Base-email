@@ -1,0 +1,72 @@
+body {
+    height: 100% !important;
+    margin: 0;
+    padding: 0;
+    width: 100% !important;
+}
+
+body,
+table,
+td,
+a {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -moz-osx-font-smoothing: antialiased;
+    -webkit-font-smoothing: antialiased;
+}
+
+
+/* images */
+img {
+    display: block;
+    border: 0 none;
+    outline: none;
+    line-height: 100%;
+    outline: none;
+    text-decoration: none;
+    vertical-align: bottom;
+    -ms-interpolation-mode: bicubic;
+}
+
+
+/* p */
+p {
+    margin: 0;
+    padding: 0;
+    margin-bottom: 0;
+}
+
+/* table */
+table {
+    border-spacing: 0;
+}
+
+table,
+td {
+    border-collapse: collapse;
+    mso-table-lspace: 0pt;
+    mso-table-rspace: 0pt;
+}
+
+
+/* Outlook */
+#outlook a {
+    padding: 0;
+}
+
+.ReadMsgBody {
+    width: 100%;
+}
+
+.ExternalClass {
+    width: 100%;
+}
+
+.ExternalClass,
+.ExternalClass p,
+.ExternalClass span,
+.ExternalClass font,
+.ExternalClass td,
+.ExternalClass div {
+    line-height: 100%;
+}
