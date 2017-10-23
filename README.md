@@ -2,7 +2,9 @@
 
 to do...
 
+## Best Pratcies
 
+https://gist.github.com/janogarcia/4977a2346cbc7e52334b
 
 ## Todo list
 
