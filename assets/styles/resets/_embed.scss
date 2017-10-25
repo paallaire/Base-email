@@ -1,72 +1,54 @@
+/* ==========================================================================
+#RESET STYLES 
+========================================================================== */
 body {
-    height: 100% !important;
-    margin: 0;
-    padding: 0;
-    width: 100% !important;
+  width: 100% !important;
+  height: 100% !important;
+  margin: 0;
+  padding: 0;
 }
 
-body,
-table,
-td,
-a {
-    -webkit-text-size-adjust: 100%;
-    -ms-text-size-adjust: 100%;
-    -moz-osx-font-smoothing: antialiased;
-    -webkit-font-smoothing: antialiased;
-}
-
-
-/* images */
 img {
-    display: block;
-    border: 0 none;
-    outline: none;
-    line-height: 100%;
-    outline: none;
-    text-decoration: none;
-    vertical-align: bottom;
-    -ms-interpolation-mode: bicubic;
-}
+  height: auto;
 
+  line-height: 100%;
+  text-decoration: none;
 
-/* p */
-p {
-    margin: 0;
-    padding: 0;
-    margin-bottom: 0;
-}
-
-/* table */
-table {
-    border-spacing: 0;
+  border: 0;
+  outline: none;
 }
 
 table,
 td {
-    border-collapse: collapse;
-    mso-table-lspace: 0pt;
-    mso-table-rspace: 0pt;
+  border-collapse: collapse;
+
+  mso-table-lspace: 0;
+  mso-table-rspace: 0;
 }
 
-
-/* Outlook */
-#outlook a {
-    padding: 0;
+/* table */
+table {
+  border-spacing: 0;
+  border-collapse: collapse !important;
 }
 
-.ReadMsgBody {
-    width: 100%;
+/* images */
+img {
+  line-height: 100%;
+  vertical-align: bottom;
+  text-decoration: none;
+
+  display: block;
+
+  -ms-interpolation-mode: bicubic;
+  border: 0 none;
+  outline: none;
+  outline: none;
 }
 
-.ExternalClass {
-    width: 100%;
-}
-
-.ExternalClass,
-.ExternalClass p,
-.ExternalClass span,
-.ExternalClass font,
-.ExternalClass td,
-.ExternalClass div {
-    line-height: 100%;
+/* p */
+p {
+  margin: 0;
+  margin-bottom: 0;
+  padding: 0;
 }
