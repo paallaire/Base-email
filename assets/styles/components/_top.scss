@@ -1,0 +1,11 @@
+$c-top : '.c-top';
+
+#{$c-top} {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: #e1e7ed;
+
+  font-family: $font-text;
+  font-size:12px;
+  text-align: center;
+}

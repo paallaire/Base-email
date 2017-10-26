@@ -2,9 +2,9 @@
 #TYPOGRAPHY
 ========================================================================== */
 
-$openSans : 'Open Sans', arial, sans-serif;
-$roboto : 'Roboto', arial, sans-serif;
-$arialBlack : "Arial Black", "Arial Bold", arial;
+$font-heading : 'Eczar', serif;
+$font-text : 'Work Sans', sans-serif;
+
 
 /* ==========================================================================
   #COLORS
@@ -12,18 +12,18 @@ $arialBlack : "Arial Black", "Arial Bold", arial;
 
 $white : #fff;
 $black : #000;
+$purple : #492e8d;
+$gray : #414859;
 
-/* ==========================================================================
-  #FOLDER
-  ========================================================================== */
-
+$text : $gray;
+$bgColor : #f8f8fb;
 
 /* ==========================================================================
   #RESPONSIVE
   ========================================================================== */
+
 $mobileWidth : 620px;
 $mobilePadding: 20px;
 
-
-
+$maxWidth : 600px;
 

@@ -14,6 +14,7 @@ const notify        = require("gulp-notify");
 const plumber       = require('gulp-plumber');
 const gutil         = require('gulp-util');
 const ftp           = require('vinyl-ftp');
+const wait          = require('gulp-wait');
 
 const browserSync   = require('browser-sync').create('dev');
 const imagemin      = require('gulp-imagemin');
@@ -99,6 +100,7 @@ gulp.task('images', function () {
 gulp.task('styles', function () {
 
     return gulp.src('./assets/styles/{inline,embed}.scss')
+        .pipe(wait(400))
         .pipe(plumber())
         .pipe(sourcemaps.init())
         .pipe(sass({
@@ -192,11 +194,11 @@ gulp.task('deploy', function () {
 gulp.task('upload', function () {
 
     let conn = ftp.create({
-        host:        ftpConnection.host,
-        user:        ftpConnection.user,
-        password:    ftpConnection.password,
-        parallel:    10,
-        log:         gutil.log,
+        host: ftpConnection.host,
+        user: ftpConnection.user,
+        password: ftpConnection.password,
+        parallel: 10,
+        log: gutil.log,
         idleTimeout: 1000
     });
 
@@ -220,11 +222,11 @@ gulp.task('upload', function () {
 gulp.task('cleanremote', function (cb) {
 
     let conn = ftp.create({
-        host:        ftpConnection.host,
-        user:        ftpConnection.user,
-        password:    ftpConnection.password,
-        parallel:    10,
-        log:         gutil.log,
+        host: ftpConnection.host,
+        user: ftpConnection.user,
+        password: ftpConnection.password,
+        parallel: 10,
+        log: gutil.log,
         idleTimeout: 100
     });
 
@@ -232,6 +234,6 @@ gulp.task('cleanremote', function (cb) {
         cb();
         gulp.start('deploy');
     });
-    
+
 });
 
