@@ -1,11 +1,14 @@
 $c-top : '.c-top';
 
 #{$c-top} {
+  max-width: $maxWidth;
+  margin: 0 auto;
   padding-top: 20px;
   padding-bottom: 20px;
-  background-color: #e1e7ed;
 
   font-family: $font-text;
-  font-size:12px;
+  font-size: 12px;
   text-align: center;
+
+  background-color: #e1e7ed;
 }

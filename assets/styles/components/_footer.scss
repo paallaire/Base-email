@@ -1,0 +1,26 @@
+$c-footer : '.c-footer';
+
+#{$c-footer} {
+  max-width: $maxWidth;
+  margin: 0 auto;
+  padding: 40px 0;
+
+  &__logo {
+    display: block;
+    text-align: center;
+
+    img {
+      display: inline-block;
+    }
+
+  }
+
+  &__disclaimer {
+    padding-top: 20px;
+    font-family: $font-text;
+    font-size: 12px;
+    font-weight: 400;
+    text-align: center;
+  }
+
+}

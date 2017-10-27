@@ -3,17 +3,15 @@ $c-hero : '.c-hero';
 #{$c-hero} {
   max-width: $maxWidth;
   margin: 0 auto;
-
   padding-top: 60px;
   padding-bottom: 60px;
-  color: $white;
-  background-color:$purple;
-
 
   font-family: $font-heading;
-  font-weight: 700;
-
   font-size: 80px;
   line-height: 1;
+  font-weight: 700;
   text-align: center;
+
+  color: $white;
+  background-color: $purple;
 }

@@ -2,47 +2,28 @@
 #CLIENT-SPECIFIC STYLES
 ========================================================================== */
 
-#outlook a {
-  padding: 0;
-}
-/* Force Outlook to provide a "view in browser" message */
-
-.ReadMsgBody {
-  width: 100%;
-}
-/* Force Hotmail to display emails at full width */
-
-.ExternalClass {
-  width: 100%;
-}
-/* Force Hotmail to display normal line spacing */
-
-.ExternalClass,
-.ExternalClass p,
-.ExternalClass span,
-.ExternalClass font,
-.ExternalClass td,
-.ExternalClass div {
-  line-height: 100%;
-}
 /* Prevent WebKit and Windows mobile changing default text sizes */
-
 body,
 table,
 td,
 a {
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
-}
-/* Remove spacing between tables in Outlook 2007 and up */
+} 
 
+/* Remove spacing between tables in Outlook 2007 and up */
 table,
 td {
   mso-table-lspace: 0;
   mso-table-rspace: 0;
-}
-/* Allow smoother rendering of resized image in Internet Explorer */
+} 
 
+/* Allow smoother rendering of resized image in Internet Explorer */
 img {
   -ms-interpolation-mode: bicubic;
+} 
+
+/* ANDROID CENTER FIX */
+div[style*='margin: 16px 0;'] {
+  margin: 0 !important;
 }

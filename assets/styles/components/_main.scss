@@ -3,17 +3,22 @@ $c-main : '.c-main';
 #{$c-main} {
   max-width: $maxWidth;
   margin: 0 auto;
-  padding: 40px 20px;
+  padding: 40px 0;
 
   border-radius: 4px;
   background-color: $white;
   box-shadow: 0 0 20px 0 rgba(166,174,182,.12);
 
+  &__container {
+    padding:0 60px;
+  }
+
   &__title {
-    padding-bottom: 6px;
+    padding-bottom: 20px;
 
     font-family: $font-heading;
     font-size: 40px;
+    line-height: 1;
     font-weight: 700;
     text-align: center;
 
@@ -22,7 +27,8 @@ $c-main : '.c-main';
 
   &__body {
     font-family: $font-text;
-    font-size: 16px;
+    font-size: 14px;
+    line-height: 1.4;
     font-weight: 400;
     text-align: center;
 

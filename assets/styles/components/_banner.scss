@@ -1,0 +1,47 @@
+$c-banner : '.c-banner';
+
+#{$c-banner} {
+  max-width: $maxWidth;
+  margin: 0 auto;
+  padding: 80px 0;
+
+  background-color: #492e8d;
+
+  &__container {
+    padding: 0 60px;
+  }
+
+  &__title {
+    padding-bottom: 20px;
+
+    font-family: $font-heading;
+    font-size: 40px;
+    line-height: 1;
+    font-weight: 700;
+    text-align: center;
+
+    color: $white;
+  }
+
+  &__subtitle {
+    font-family: $font-text;
+    font-size: 16px;
+    font-weight: 400;
+    text-align: center;
+
+    color: $white;
+  }
+
+  &__btn {
+    padding-top: 40px;
+
+    font-family: $font-text;
+    font-size: 16px;
+    font-weight: 400;
+    text-align: center;
+
+    display: block;
+
+    color: $white;
+  }
+}

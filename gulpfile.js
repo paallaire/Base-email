@@ -64,8 +64,8 @@ gulp.task('watch', function () {
         reloadDelay: 1000
     });
 
-    gulp.watch("./assets/styles/**/*.scss", ['styles']);
-    gulp.watch("./templates/**/*.twig", ['twig']);
+    gulp.watch("./assets/styles/**/*.scss", ['build']);
+    gulp.watch("./templates/**/*.twig", ['build']);
 
 });
 
@@ -133,7 +133,7 @@ gulp.task('styles', function () {
 /* --------------------------------------------------------------------------------
     inlineCSS
 -------------------------------------------------------------------------------- */
-gulp.task('inlineCSS', ['styles'], function () {
+gulp.task('inlineCSS', function () {
 
     return gulp.src('./public/*.html')
         .pipe(plumber())
@@ -153,7 +153,7 @@ gulp.task('inlineCSS', ['styles'], function () {
 /* --------------------------------------------------------------------------------
     twig
 -------------------------------------------------------------------------------- */
-gulp.task('twig', ['styles'], function () {
+gulp.task('twig', function () {
 
     return gulp
         .src('./templates/*.twig')
@@ -168,7 +168,7 @@ gulp.task('twig', ['styles'], function () {
     build
 -------------------------------------------------------------------------------- */
 gulp.task('build', function () {
-    runSequence('clean', 'twig', 'inlineCSS')
+    runSequence('clean', 'styles', 'twig', 'inlineCSS')
 });
 
 
